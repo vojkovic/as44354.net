@@ -12,6 +12,7 @@ $(CSS_DIR)/%.css: $(LESS_DIR)/%.less
 
 $(CSS_DIR)/%.min.css: $(CSS_DIR)/%.css
 	uglifycss $< > $@
+	rm $<
 
 docker:
 	docker build -t as44354 .

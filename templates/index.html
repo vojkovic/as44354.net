@@ -1,0 +1,30 @@
+{{ template "header.html" . }}
+<div class="container">
+    <div class="content">
+
+        <div class="center-container">
+            <div class="welcome-text">Welcome to</div>
+            <h1>AS44354</h1>
+            <h2>BROCK VOJKOVIC</h2>
+            {{if .ConnectedToAS44354}}
+            <p class="connected-text">Connected to AS44354</p>
+            {{else}}
+            <p class="not-connected-text">Not connected to AS44354. <br> Check your IPv6 Connectivity.</p>
+            {{end}}
+        </div>
+
+        <div class="button-grid">
+            <a href="https://as44354.peeringdb.com" class="button">PeeringDB</a>
+            <a href="https://bgp.tools/as/44354" class="button">BGP Tools</a>
+            <a href="https://bgp.he.net/AS44354" class="button">Hurricane Electric</a>
+            <a href="https://irr.internet.asn.au/asn/as44354" class="button">IRR Explorer</a>
+            <a href="https://ipinfo.io/AS44354" class="button">IPinfo</a>
+            <a href="https://stat.ripe.net/app/AS44354" class="button">RIPEstat</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; {{ .Year }} AS44354
+    </footer>
+</div>
+{{ template "footer.html" . }}

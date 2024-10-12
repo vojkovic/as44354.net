@@ -1,0 +1,56 @@
+{{ template "header.html" . }}
+<div class="content">
+
+    <div class="center-container">
+        <h1>Points of Presence</h1>
+
+        <p>AS44354 has presence in the following locations:</p>
+
+        <table class="locations-table">
+            <thead>
+                <th>🌐</th>
+                <th>Location</th>
+                <th>IXP</th>
+                <th>IPv6 Address</th>
+            </thead>
+            <tr>
+                <td>🇺🇸</td>
+                <td>Fremont</td>
+                <td>FREMIX</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>🇨🇦</td>
+                <td>Toronto</td>
+                <td>ONIX</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>🇺🇸</td>
+                <td>Ashburn</td>
+                <td>NVIX</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>🇬🇧</td>
+                <td>London</td>
+                <td>LONAP</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>🇨🇭</td>
+                <td>Zurich</td>
+                <td>FogIXP</td>
+                <td>-</td>
+        </table>
+
+        <p>Peering is available at all locations. See the <a href="/peering">Peering Policy</a> for more information.</p>
+
+    </div>
+
+
+    <footer>
+        &copy; {{ .Year }} AS44354
+    </footer>
+</div>
+{{ template "footer.html" . }}

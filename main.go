@@ -14,11 +14,17 @@ type PageData struct {
 
 func main() {
 	http.HandleFunc("/", handler("templates/index.html"))
+	http.HandleFunc("/healthz", healthzHandler)
 	http.HandleFunc("/locations", handler("templates/locations.html"))
 	http.HandleFunc("/peering", handler("templates/peering.html"))
 	http.HandleFunc("/contact", handler("templates/contact.html"))
 	http.HandleFunc("/static/", staticHandler)
 	http.ListenAndServe(":8080", nil)
+}
+
+func healthzHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("OK"))
 }
 
 func generatePageData(r *http.Request) PageData {

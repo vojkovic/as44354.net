@@ -15,6 +15,7 @@ type PageData struct {
 func main() {
 	http.HandleFunc("/", handler("templates/index.html"))
 	http.HandleFunc("/healthz", healthzHandler)
+	http.HandleFunc("/geofeed.csv", geofeedHandler)
 	http.HandleFunc("/locations", handler("templates/locations.html"))
 	http.HandleFunc("/peering", handler("templates/peering.html"))
 	http.HandleFunc("/contact", handler("templates/contact.html"))
@@ -25,6 +26,11 @@ func main() {
 func healthzHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte("OK"))
+}
+
+func geofeedHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/csv")
+	http.ServeFile(w, r, "geofeed.csv")
 }
 
 func generatePageData(r *http.Request) PageData {

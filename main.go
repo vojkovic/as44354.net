@@ -29,7 +29,7 @@ func healthzHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func geofeedHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/csv")
+	w.Header().Set("Content-Type", "text/plain")
 	http.ServeFile(w, r, "geofeed.csv")
 }
 

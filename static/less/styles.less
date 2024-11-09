@@ -2,8 +2,11 @@
 @primary: #5d6aff;
 @secondary: #4a2ff7;
 @text-color: #ffffff;
+@subtext-color: #eee;
 @top-bar-bg: #333;
 @button-text-color: #ffffff;
+@table-border: #888;
+@table-header-bg: #171717;
 
 body,
 html {
@@ -134,35 +137,41 @@ p.connected-text {
     width: 80%;
     max-width: 600px;
     border-collapse: collapse;
-    margin: 20px auto;
+    margin: 30px auto;
     font-size: 0.9em;
     line-height: 1.5;
 
     th,
     td {
-        padding: 10px 12px;
+        padding: 10px 8px;
         text-align: left;
-        border: 3px solid @primary;
+        border: 1px solid @table-border;
 
-        &:first-child {
+        &:last-child {
             width: 1%;
-            user-select: none;
+            text-align: center;
         }
     }
 
     th {
         color: @text-color;
-        font-weight: bold;
+        font-weight: 800;
+        text-align: center;
+        background-color: @table-header-bg;
         border-left: 0;
         border-right: 0;
 
         &:first-child {
-            border-left: 3px solid @primary;
+            border-left: 1px solid @table-border;
         }
 
         &:last-child {
-            border-right: 3px solid @primary;
+            border-right: 1px solid @table-border;
         }
+    }
+
+    td {
+        color: @subtext-color;
     }
 }
 

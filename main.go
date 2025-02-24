@@ -16,7 +16,6 @@ func main() {
 	http.HandleFunc("/", handler("templates/index.html"))
 	http.HandleFunc("/healthz", healthzHandler)
 	http.HandleFunc("/geofeed.csv", geofeedHandler)
-	http.HandleFunc("/locations", handler("templates/locations.html"))
 	http.HandleFunc("/peering", handler("templates/peering.html"))
 	http.HandleFunc("/contact", handler("templates/contact.html"))
 	http.HandleFunc("/static/", staticHandler)

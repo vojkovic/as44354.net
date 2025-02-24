@@ -1,9 +1,10 @@
-@background-color: #1a1a1a;
-@primary: #5d6aff;
-@secondary: #4a2ff7;
+@background-color: #0f0f0f;
+@primary: hsl(240, 60%, 50%);
+@secondary: hsl(240, 60%, 40%);
 @text-color: #ffffff;
 @subtext-color: #eee;
-@top-bar-bg: #333;
+@hover-color: #aaa;
+@top-bar-bg: #1b1b1b;
 @button-text-color: #ffffff;
 @table-border: #888;
 @table-header-bg: #171717;
@@ -27,6 +28,11 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-image: url("/static/img/world.svg");
+    background-size: cover;
+    background-size: 120%;
+    background-position: 80% 59%;
+    background-repeat: no-repeat;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -43,9 +49,8 @@ html {
             font-weight: bold;
             transition: color 0.25s ease, transform 0.25s ease;
 
-            &:hover {
-                color: @primary;
-                transform: scale(1.05);
+            &:hover, &:focus {
+                color: @hover-color;
             }
         }
     }
@@ -146,11 +151,6 @@ p.connected-text {
         padding: 10px 8px;
         text-align: left;
         border: 1px solid @table-border;
-
-        &:last-child {
-            width: 1%;
-            text-align: center;
-        }
     }
 
     th {
@@ -200,12 +200,6 @@ footer {
     color: #ccc;
 }
 
-.container {
-    display: grid;
-    grid-template-rows: 1fr auto;
-    min-height: 90vh;
-}
-
 li {
     display: flex;
     align-items: center;
@@ -251,9 +245,13 @@ h2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin: 20px 10%;
+    margin: 20px 30%;
     opacity: 0;
     animation: fadeIn 1s ease-in-out forwards 1.2s;
+
+    @media (max-width: 1536px) {
+        margin: 20px 20%;
+    }
 
     @media (max-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
@@ -272,7 +270,7 @@ h2 {
     text-decoration: none;
     font-size: 0.85em;
     font-weight: 700;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 2px solid @primary;
     text-align: center;
     position: relative;
@@ -281,15 +279,11 @@ h2 {
     opacity: 0;
     animation: fadeIn 1s ease-in-out forwards 1.4s;
 
-    &:hover {
+    &:hover, &:focus {
         background: @secondary;
         color: @text-color;
-        transform: translateY(-3px);
         border: 2px solid #fff;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    &:hover::after {
-        transform: translateY(0);
-    }
 }

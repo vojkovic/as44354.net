@@ -1,27 +1,47 @@
 {{ template "header.html" . }}
-<div class="content">
 
-    <div class="center-container">
-        <h1>Peering Policy</h1>
+<div class="center-container">
+    <h1>Peering</h1>
 
-        <ul>
-            <p>AS44354 has an open peering policy, we will peer with any network as long you meet the following basic requirements:</p>
-            <li>You have a publically routable ASN and IPv6 address space.</li>
-            <li>You have a complete and up-to-date PeeringDB profile.</li>
-            <li>You provide a NOC contact email at the time of peering.</li>
-            <li>Peering is done over a physical connection (no virtual peering).</li>
-            <li>Only send us traffic from your own or your downstream networks.</li>
-            <li>You will not announce a full table except by prior agreement.</li>
-            <p>We also reserve the following rights:</p>
-            <li>Change our peering policy at any time without notice.</li>
-            <li>Cease peering at any time without notice.</li>
-            <li>Withdraw routes at any time without notice.</li>
-            <p>If you meet the above requirements and would like to peer with us, please see <a href="/contact">Contact</a> for more information.</p>
-        </ul>
-    </div>
+    <ul>
+        <p>AS44354 has an open peering policy, we will peer with any network as long you meet the following basic requirements:</p>
+        <li>You have a publically routable ASN and IPv6 address space.</li>
+        <li>You have a complete and up-to-date PeeringDB profile.</li>
+        <li>You only send us traffic from your own or your downstream networks.</li>
+        <p>We also reserve the following rights:</p>
+        <li>To change our peering policy at any time without notice.</li>
+        <li>To cease peering at any time without notice.</li>
+        <li>To withdraw routes at any time without notice.</li>
+        <p>The current peering locations are:</p>
+        <table class="locations-table">
+            <thead>
+                <th>Location</th>
+                <th>IXP</th>
+                <th>Address</th>
+            </thead>
+            <tr>
+                <td>Fremont, US</td>
+                <td>FREMIX</td>
+                <td>2001:504:125:e0::fa</td>
+            </tr>
+            <tr>
+                <td>Zurich, CH</td>
+                <td>FogIXP</td>
+                <td>2001:7f8:ca:1::4:4354:1</td>
+            </tr>
+            <tr>
+                <td>Frankfurt, DE</td>
+                <td>LocIX</td>
+                <td>2001:7f8:f2:e1:0:4:4354:1</td>
+            </tr>
+        </table>
+    
+        <p>If you would like to peer, please <a href="/contact">Contact</a> us.</p>
+    
+    </ul>
 
-    <footer>
-        &copy; {{ .Year }} AS44354
-    </footer>
+
 </div>
+
+
 {{ template "footer.html" . }}

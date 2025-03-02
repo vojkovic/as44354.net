@@ -1,7 +1,7 @@
-# prefix,country_code,region_code,city,postal
-2a14:7c0:4b00::/44,AU,AU-NSW,Sydney,
-2a14:7c0:4b10::/44,AU,AU-VIC,Melbourne,
-2a14:7c0:4b20::/44,SG,SG-01,Singapore,
-2a14:7c0:4b30::/44,US,US-MO,Kansas City,
-2a14:7c0:4b40::/44,DE,DE-FR,Frankfurt,
-2a14:7c0:4b50::/44,AU,AU-WA,Perth,
+# prefix,country_code,region_code,city
+2a14:7c0:4b00::/44,AU,AU-NSW,Sydney
+2a14:7c0:4b10::/44,AU,AU-VIC,Melbourne
+2a14:7c0:4b20::/44,SG,SG-01,Singapore
+2a14:7c0:4b30::/44,US,US-MO,Kansas City
+2a14:7c0:4b40::/44,DE,DE-HE,Frankfurt
+2a14:7c0:4b50::/44,AU,AU-WA,Perth

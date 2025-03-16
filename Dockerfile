@@ -12,6 +12,7 @@ COPY --from=builder /app/main /
 
 COPY ./static/css /static/css
 COPY ./static/img /static/img
+COPY ./static/font /static/font
 COPY ./geofeed.csv /geofeed.csv
 
 COPY ./templates /templates

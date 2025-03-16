@@ -4,12 +4,10 @@ import (
 	"net"
 	"net/http"
 	"text/template"
-	"time"
 )
 
 type PageData struct {
 	ConnectedToAS44354 bool
-	Year               int
 }
 
 func main() {
@@ -36,7 +34,6 @@ func generatePageData(r *http.Request) PageData {
 	serverIP := r.Header.Get("X-Server-IP")
 	return PageData{
 		ConnectedToAS44354: isIPv6InRange(serverIP, "2a14:7c0:4b00::/40"),
-		Year:               time.Now().Year(),
 	}
 }
 

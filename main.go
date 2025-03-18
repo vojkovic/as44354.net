@@ -15,6 +15,7 @@ func main() {
 	http.HandleFunc("/healthz", healthzHandler)
 	http.HandleFunc("/geofeed.csv", geofeedHandler)
 	http.HandleFunc("/peering", handler("templates/peering.html"))
+	http.HandleFunc("/communities", handler("templates/communities.html"))
 	http.HandleFunc("/contact", handler("templates/contact.html"))
 	http.HandleFunc("/static/", staticHandler)
 	http.ListenAndServe(":8080", nil)

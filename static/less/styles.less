@@ -173,9 +173,14 @@ p.not-connected-text {
     margin: 5% 5% 8% 5%;
     opacity: 0;
     animation: fadeIn 1s ease-in-out forwards;
+
+    @media (max-width: 768px) {
+        margin-top: 10%;
+    }
+
 }
 
-.locations-table {
+.data-table {
     width: 80%;
     max-width: 600px;
     border-collapse: collapse;
@@ -253,10 +258,14 @@ li {
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 64px;
     margin: 0;
     opacity: 0;
     animation: fadeIn 0.5s ease-in-out forwards 0.2s;
+
+    @media (max-width: 768px) {
+        font-size: 48px;
+    }
 }
 
 h2 {

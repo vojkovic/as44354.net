@@ -46,16 +46,24 @@ html {
     border: @table-border 1px solid;
     border-radius: 10px;
     margin: 0 10px 10px 10px;
-    transform: translateY(10px); 
+    transform: translateY(10px);
 
     img.logo {
         width: 40px;
         height: 40px;
         padding: 10px;
+        transition: transform 0.3s ease;
+
+        @media (max-width: 768px) {
+            width: 35px;
+            height: 35px;
+            padding: 8px;
+        }
     }
 
     .nav-links {
         display: flex;
+        transition: all 0.3s ease-in-out;
 
         a {
             color: @text-color;
@@ -63,7 +71,8 @@ html {
             border-radius: 10px;
             margin-left: 5px;
             text-decoration: none;
-            transition: color 0.25s ease;
+            transition: all 0.25s ease;
+            font-size: 1rem;
 
             &:hover, &:focus {
                 background-color: @accent;
@@ -71,6 +80,11 @@ html {
 
             &.active {
                 background-color: @accent;
+            }
+
+            @media (max-width: 968px) {
+                padding: 15px 20px;
+                font-size: 0.95rem;
             }
         }
     }
@@ -82,28 +96,47 @@ html {
         border: none;
         color: @text-color;
         cursor: pointer;
+        padding: 10px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            display: block;
+        }
     }
 
     @media (max-width: 968px) {
         .nav-links {
             gap: 0px;
-
-            a {
-                padding: 15px 20px;
-            }
         }
     }
 
     @media (max-width: 768px) {
+        padding: 8px;
+        margin: 0 8px 8px 8px;
+
         .nav-links {
             display: none;
             flex-direction: column;
-            width: 100%;
+            width: calc(100% - 20px);
             position: absolute;
-            top: 6em;
-            left: 0;
+            top: 100%;
+            left: 10px;
+            right: 10px;
             z-index: 1001;
-            transition: transform 0.3s ease-in-out;
+            background: @background;
+            border: 1px solid @table-border;
+            border-radius: 0 0 10px 10px;
+            margin-top: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+            &.active {
+                display: flex;
+                animation: slideDown 0.3s ease-in-out;
+            }
 
             a {
                 padding: 15px;
@@ -111,22 +144,30 @@ html {
                 background-color: @background;
                 border-radius: 0;
                 border-bottom: 1px solid @table-border;
-                border-left: 1px solid @table-border;
-                border-right: 1px solid @table-border;
-                display: block;
+                margin: 0;
+                font-size: 1rem;
+
                 &:last-child {
+                    border-bottom: none;
                     border-radius: 0 0 10px 10px;
                 }
-                &:first-child {
-                    border-radius: 10px 10px 0 0;
-                    border-top: 1px solid @table-border;
+
+                &:hover, &:focus {
+                    background-color: @accent;
                 }
             }
         }
+    }
+}
 
-        .hamburger {
-            display: block;
-        }
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 

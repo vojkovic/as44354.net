@@ -1,9 +1,17 @@
-
 </div>
 <script>
     document.getElementById('hamburger').addEventListener('click', function () {
         const navLinks = document.getElementById('nav-links');
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const navLinks = document.getElementById('nav-links');
+        const hamburger = document.getElementById('hamburger');
+        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+            navLinks.classList.remove('active');
+        }
     });
 </script>
 </body>

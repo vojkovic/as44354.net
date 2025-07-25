@@ -1,4 +1,5 @@
 # prefix,country_code,region_code,city,postal
+44.30.31.0/24,AU,AU-WA,Perth,
 2a14:7c0:4b00::/44,AU,AU-NSW,Sydney,
 2a14:7c0:4b00::/48,AU,AU-NSW,Sydney,
 2a14:7c0:4b00:0100::/64,AU,AU-VIC,Melbourne,

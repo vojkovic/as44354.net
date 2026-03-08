@@ -4,14 +4,16 @@ CSS_DIR = ./static/css
 LESS_FILES = $(wildcard $(LESS_DIR)/*.less)
 MIN_CSS_FILES = $(patsubst $(LESS_DIR)/%.less, $(CSS_DIR)/%.min.css, $(LESS_FILES))
 
-all: $(MIN_CSS_FILES)
+all: css
 	go run .
 
+css: $(MIN_CSS_FILES)
+
 $(CSS_DIR)/%.css: $(LESS_DIR)/%.less
-	lessc $< $@
+	npx lessc $< $@
 
 $(CSS_DIR)/%.min.css: $(CSS_DIR)/%.css
-	uglifycss $< > $@
+	npx uglifycss $< > $@
 	rm $<
 
 docker:
@@ -21,4 +23,4 @@ docker:
 clean:
 	rm -f $(CSS_DIR)/*.css $(CSS_DIR)/*.min.css
 
-.PHONY: all clean docker
+.PHONY: all css clean docker

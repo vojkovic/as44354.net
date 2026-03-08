@@ -1,14 +1,11 @@
 package main
 
 import (
-	"net"
 	"net/http"
 	"text/template"
 )
 
-type PageData struct {
-	ConnectedToAS44354 bool
-}
+type PageData struct{}
 
 func main() {
 	http.HandleFunc("/", handler("templates/index.html"))
@@ -32,10 +29,7 @@ func geofeedHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func generatePageData(r *http.Request) PageData {
-	serverIP := r.Header.Get("X-Server-IP")
-	return PageData{
-		ConnectedToAS44354: isIPv6InRange(serverIP, "2a14:7c0:4b00::/40"),
-	}
+	return PageData{}
 }
 
 func handler(templatePath string) http.HandlerFunc {
@@ -56,10 +50,4 @@ func renderTemplateWithData(w http.ResponseWriter, path string, data interface{}
 
 func staticHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "static/"+r.URL.Path[len("/static/"):])
-}
-
-func isIPv6InRange(ipStr string, cidrStr string) bool {
-	ip := net.ParseIP(ipStr)
-	_, ipNet, _ := net.ParseCIDR(cidrStr)
-	return ip != nil && ipNet.Contains(ip)
 }
